@@ -1,0 +1,3 @@
+start postgreSQL server if ActiveRecord::ConnectionNotEstablished
+
+run sudo service postgresql start

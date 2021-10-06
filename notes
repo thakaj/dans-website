@@ -1,3 +1,6 @@
 start postgreSQL server if ActiveRecord::ConnectionNotEstablished
 
 run sudo service postgresql start
+
+
+run npm start --prefix client

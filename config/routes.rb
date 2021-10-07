@@ -1,6 +1,15 @@
 Rails.application.routes.draw do
   devise_for :admins
-  devise_for :students, controllers: {sessions: 'user/sessions'}
+  devise_for :students, path: '', path_names: {
+    sign_in: 'login',
+    sign_out: 'logout',
+    registration: 'signup'
+  },
+  controllers: {
+    sessions: 'student/sessions',
+    registrations: 'student/registrations'
+  }
+  get 'current_student/index', to: 'current_student#index'
   resources :appointments
   resources :instruments
   resources :pdfs

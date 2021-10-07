@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class Students::SessionsController < Devise::SessionsController
+class Student::SessionsController < Devise::SessionsController
   respond_to :json
   private
 

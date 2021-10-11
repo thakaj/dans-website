@@ -12,7 +12,6 @@ Rails.application.routes.draw do
   get 'current_student/index', to: 'current_student#index'
   resources :appointments
   resources :instruments
-  resources :pdfs
   resource :students, only: [:show, :destroy]
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   

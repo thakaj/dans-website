@@ -75,14 +75,6 @@ ActiveRecord::Schema.define(version: 2021_10_06_180900) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "pdfs", force: :cascade do |t|
-    t.string "content"
-    t.bigint "instrument_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["instrument_id"], name: "index_pdfs_on_instrument_id"
-  end
-
   create_table "students", force: :cascade do |t|
     t.string "first_name"
     t.string "last_name"

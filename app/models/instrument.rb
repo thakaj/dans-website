@@ -1,3 +1,3 @@
 class Instrument < ApplicationRecord
-    has_many_attached :pdfs, service: :s3
+    has_many_attached :pdfs
 end

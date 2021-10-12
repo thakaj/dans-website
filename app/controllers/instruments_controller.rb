@@ -44,6 +44,6 @@ class InstrumentsController < ApplicationController
     private
 
     def instrument_params
-        permit.params(:name, :pdfs [])
+        permit.params(:name, pdfs: [])
     end
 end

@@ -4,3 +4,5 @@ run sudo service postgresql start
 
 
 run npm start --prefix client
+
+gem => dotenv -rails

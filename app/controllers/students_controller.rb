@@ -10,7 +10,7 @@ class StudentsController < ApplicationController
             students.destroy
             head :no_content
         else 
-            render json: {error: "Student not found"}
+            render json: {errors: "Student not found"}
         end
     end
 end

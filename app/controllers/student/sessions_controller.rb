@@ -1,5 +1,6 @@
 # frozen_string_literal: true
-
+#bug in the code ask laura her opnion. Login is sucessful code returns good status. Logout always returns 401 even if it destroys the session something to do with 
+#before_action in current_student controller possibly because it has a different base
 class Student::SessionsController < Devise::SessionsController
   respond_to :json
   private
@@ -12,7 +13,7 @@ class Student::SessionsController < Devise::SessionsController
   end
 
   def respond_to_on_destroy
-    if current_user
+    if current_student
       render json: {
         status: 200,
         message: "logged out successfully"

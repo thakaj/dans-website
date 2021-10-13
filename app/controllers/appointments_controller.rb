@@ -9,7 +9,7 @@ class AppointmentsController < ApplicationController
         if instruments
             render json: appointments, except: [:updated_at, :created_at]
         else
-            render json: {error: "Appointment not found"}
+            render json: {errors: "Appointment not found"}
         end
     end
 
@@ -18,7 +18,7 @@ class AppointmentsController < ApplicationController
         if appointments.valid?
             render json: appointments
         else
-            render json: {error: "Invalid Entry"}
+            render json: {errors: "Invalid Entry"}
         end
     end
 
@@ -27,7 +27,7 @@ class AppointmentsController < ApplicationController
         if appointments
             render json: appointments
         else
-            render json: {error: "Invalid Entry"}
+            render json: {errors: "Invalid Entry"}
         end
     end
 
@@ -37,7 +37,7 @@ class AppointmentsController < ApplicationController
             appointments.destroy
             head :no_content
         else
-            render json: {error: "Appointment not found"}
+            render json: {errors: "Appointment not found"}
         end
     end
 

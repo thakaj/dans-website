@@ -9,7 +9,7 @@ Rails.application.routes.draw do
     sessions: 'student/sessions',
     registrations: 'student/registrations'
   }
-  get 'current_student/index', to: 'current_student#index'
+  get 'current_student/', to: 'current_student#index'
   resources :appointments
   resources :instruments
   resource :students, only: [:show, :destroy]

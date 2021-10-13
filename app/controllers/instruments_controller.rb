@@ -9,7 +9,7 @@ class InstrumentsController < ApplicationController
         if instruments
             render json: instruments, except: [:updated_at, :created_at]
         else
-            render json: {error: "Instrument not found"}
+            render json: {errors: "Instrument not found"}
         end
     end
 
@@ -19,7 +19,7 @@ class InstrumentsController < ApplicationController
             instruments.update!(instrument_params)
             render json: instruments
         else
-            render json: {error: "Insturment not found"}
+            render json: {errors: "Insturment not found"}
         end
     end
 
@@ -28,7 +28,7 @@ class InstrumentsController < ApplicationController
         if instruments.valid?
             render json: instruments
         else
-            render json: {error: "Invalid entry"}
+            render json: {errors: "Invalid entry"}
         end
     end
 
@@ -38,7 +38,7 @@ class InstrumentsController < ApplicationController
             instruments.destroy
             head :no_content
         else
-            render json: {error: "Instrument not found"}
+            render json: {errors: "Instrument not found"}
         end
     end
     private

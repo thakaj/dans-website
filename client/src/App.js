@@ -1,7 +1,14 @@
 import './App.css';
-import StudentLogin from './Login/StudentLogin';
 import {useEffect, useState} from 'react'
-import StudentLogout from './Logout/StudentLogout';
+import { Switch, Route } from 'react-router';
+import StudentLogin from './Login/StudentLogin';
+import NavBar from './NavBar/NavBar';
+import HomePage from './HomePage/HomePage';
+import TutoringPage from './BookTutoring/TutoringPage';
+import LearnPage from './Learn/LearnPage';
+import SocialMediaPage from './Social Media/SocialMediaPage';
+import ContactPage from './Contact/ContactPage';
+
 
 function App() {
   const [currentStudent, setCurrentStudent] = useState(false)
@@ -31,8 +38,27 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <StudentLogin />
-        <StudentLogout handleLogout={handleLogout}/>
+        <NavBar handleLogout={handleLogout} />
+        <Switch> 
+        <Route exact path= "/login">
+          <StudentLogin handleLogin={handleLogin} currentStudent={currentStudent}/>
+        </Route>
+        <Route exact path ="/">
+          <HomePage />
+        </Route>
+        <Route exact path = "/tutoring">
+          <TutoringPage />
+        </Route>
+        <Route exact path = "/learn">
+          <LearnPage />
+        </Route>
+        <Route exact path = "/social">
+          <SocialMediaPage /> 
+        </Route>
+        <Route exact path = "/contact">
+          <ContactPage />
+        </Route>
+        </Switch>
       </header>
     </div>
   );

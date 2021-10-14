@@ -1,6 +1,7 @@
 import React, {useState} from "react";
+import {Redirect} from "react-router-dom"
 
-function StudentLogin(){
+function StudentLogin({currentStudent, handleLogin}){
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
     const [errors, setErrors] = useState("")
@@ -24,6 +25,7 @@ function StudentLogin(){
         if (r.ok)
         r.json()
         .then(data=> {
+            handleLogin(data)
             console.log(data)
             setEmail("")
             setPassword("")
@@ -33,6 +35,9 @@ function StudentLogin(){
             .then(e => setErrors(e.errors))
         }
     })
+}
+if (currentStudent){
+    return <Redirect to="/" />
 }
 
     return (

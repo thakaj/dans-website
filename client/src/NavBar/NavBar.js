@@ -6,13 +6,13 @@ function NavBar({handleLogout}){
 
     return (
         <header>
-            <nav> 
-                <Link to="/">Home Page</Link>
-                <Link to="/login">Login</Link>
-                <Link to="/tutoring">Book Tutoring</Link>
-                <Link to="/learn">Learn</Link>
-                <Link to="/social">Social Media</Link>
-                <Link to= "/contact">Contact</Link>
+            <nav > 
+                <Link className="navbar" to="/">Home Page</Link>
+                <Link className="navbar"to="/login">Login</Link>
+                <Link className="navbar" to="/tutoring">Book Tutoring</Link>
+                <Link className="navbar" to="/learn">Learn</Link>
+                <Link className="navbar" to="/social">Social Media</Link>
+                <Link className="navbar" to= "/contact">Contact</Link>
             </nav>
         </header>
     )

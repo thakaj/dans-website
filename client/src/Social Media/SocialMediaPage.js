@@ -1,11 +1,12 @@
 import React from "react";
+import Advertising from "./Advertising";
 
 
 function SocialMediaPage(){
 
     return (
         <div>
-            Hello Social Media           
+            <Advertising />
         </div>
     )
 }

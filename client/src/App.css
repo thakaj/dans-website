@@ -36,3 +36,41 @@
     transform: rotate(360deg);
   }
 }
+a {
+  color: white
+}
+.navbar {
+  margin: 0 1rem;
+  transition: transform 250ms;
+  display: inline-block;
+}
+.social-container {
+  background: #282c34;
+  padding: 25px 50px;
+}
+a.social {
+  margin: 0 1rem;
+  transition: transform 250ms;
+  display: inline-block;
+}
+a.social:hover {
+  transform: translateY(-2px);
+}
+a.facebook {
+  color: #4968ad;
+}
+a.instagram {
+  color: #d6249f;
+}
+a.linkedin {
+  color: #0a69c7;
+}
+a.youtube {
+  color: #eb3223;
+}
+a.bandCamp {
+  color: teal;
+}
+a.spotify {
+  color: green
+}

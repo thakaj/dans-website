@@ -8,6 +8,8 @@ import TutoringPage from './BookTutoring/TutoringPage';
 import LearnPage from './Learn/LearnPage';
 import SocialMediaPage from './Social Media/SocialMediaPage';
 import ContactPage from './Contact/ContactPage';
+import StudentSignUp from './Login/StudentSignUp,';
+import UpdateStudent from './Login/UpdateStudent';
 
 
 function App() {
@@ -34,11 +36,10 @@ function App() {
   }
 
 
-
   return (
     <div className="App">
       <header className="App-header">
-        <NavBar handleLogout={handleLogout} />
+        <NavBar handleLogout={handleLogout} currentStudent={currentStudent} />
         <Switch> 
         <Route exact path= "/login">
           <StudentLogin handleLogin={handleLogin} currentStudent={currentStudent}/>
@@ -57,6 +58,12 @@ function App() {
         </Route>
         <Route exact path = "/contact">
           <ContactPage />
+        </Route>
+        <Route exact path = "/signup">
+          <StudentSignUp handleLogin={handleLogin} currentStudent={currentStudent} />
+        </Route>
+        <Route exact path = "/update">
+          <UpdateStudent currentStudent={currentStudent} />
         </Route>
         </Switch>
       </header>

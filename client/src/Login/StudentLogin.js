@@ -1,11 +1,11 @@
-import React, {useState} from "react";
-import {Redirect} from "react-router-dom"
+import React from "react";
+import {Redirect, useHistory} from "react-router-dom"
+import { useState} from 'react'
 
 function StudentLogin({currentStudent, handleLogin}){
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
-    const [errors, setErrors] = useState("")
-
+    const history = useHistory()
 
     function handleSubmit(e){
         e.preventDefault()
@@ -32,7 +32,8 @@ function StudentLogin({currentStudent, handleLogin}){
         })
         else {
             r.json()
-            .then(e => setErrors(e.errors))
+            .then(e => {
+                console.log(e.errors)})
         }
     })
 }
@@ -42,8 +43,6 @@ if (currentStudent){
 
     return (
         <div>
-             {errors.length > 0 &&<h2 style={{ color: "black" }} >Error: {errors} please try again</h2>}
-            <label>Login: </label>
              <form onSubmit={handleSubmit}>
              <label> Email: </label><br/>
                <input type="text"  id="email" 
@@ -60,6 +59,8 @@ if (currentStudent){
                 <button type="submit">Submit!</button>
                 <br/>
              </form>
+             <div>Create your own account here: {<button type="submit" onClick={() => {history.push("/signup")}}>Register</button>}
+            </div>
         </div>
     )
 }

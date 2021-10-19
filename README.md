@@ -1,24 +1,34 @@
-# README
+# Dans-Website
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Dans-Website is my final project for Flatiron School as well as a personal thank you to my Bass teacher for teaching me over the years. The website is fully depolyable and serves as a marketing platform for my teacher to advertise himself as a private music teacher as well as a professional page for private projects.
 
-Things you may want to cover:
+## Installation
 
-* Ruby version
+To run on your local environment clone this repo and run bundle install then change directory into the client file and run npm install. 
 
-* System dependencies
+```bash
+bundle install
+```
 
-* Configuration
+```bash
+cd client
+```
 
-* Database creation
+```bash
+npm install
+```
 
-* Database initialization
+## Usage
 
-* How to run the test suite
+```bash
+# root directory
+rails s
+```
 
-* Services (job queues, cache servers, search engines, etc.)
+```bash
+# inside clinet directory
+npm start
+```
 
-* Deployment instructions
-
-* ...
+## License
+[MIT](https://choosealicense.com/licenses/mit/)

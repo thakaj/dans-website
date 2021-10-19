@@ -1,8 +1,11 @@
 class StudentsController < ApplicationController
-    #weird error wont accept index as the get
     def show
-        students = Student.all
+        students = Student.find_by(id: params[:id])
+        if students
         render json: students, except: [:updated_at, :created_at]
+        else
+            render json: {errors: "Student not found"}
+        end
     end
     def destroy
         students = Student.find_by(id: params[:id])
@@ -11,6 +14,15 @@ class StudentsController < ApplicationController
             head :no_content
         else 
             render json: {errors: "Student not found"}
+        end
+    end
+    def update
+        students = Student.find_by(id: params[:id])
+        if students
+            students.update(first_name: params[:first_name], last_name: params[:last_name])
+            render json: students, except: [:updated_at, :created_at]
+        else
+            render json: {errors: "Invalid Entry"}
         end
     end
 end

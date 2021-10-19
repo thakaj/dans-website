@@ -12,7 +12,10 @@ Rails.application.routes.draw do
   get 'current_student/', to: 'current_student#index'
   resources :appointments
   resources :instruments
-  resource :students, only: [:show, :destroy]
+  get 'student/:id', to: 'students#show'
+  delete 'student/:id', to: 'students#destroy'
+  patch 'student/:id', to: 'students#update'
+  # resources :students, only: [:show, :destroy, :update]
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   
 

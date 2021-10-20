@@ -1,16 +1,14 @@
-import React, {useState} from "react";
-import Calendar from 'react-calendar';
-import 'react-calendar/dist/Calendar.css';
-
+import React from "react";
+import FullCalendar from '@fullcalendar/react'
+import interactionPlugin from '@fullcalendar/interaction'
+import dayGridPlugin from '@fullcalendar/daygrid'
 
 function TutoringCalender(){
-    const [value, onChange] = useState(new Date());
     
     return(
         <div>
-          <Calendar
-          onChange={onChange}
-          value={value} />
+          <FullCalendar defaultView="dayGridMonth" plugins={[ dayGridPlugin, interactionPlugin ]}
+          initialView="dayGridMonth" />
         </div>    
     )
 }

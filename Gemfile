@@ -6,7 +6,7 @@ gem 'devise'
 gem 'devise-jwt'
 gem 'fast_jsonapi'
 
-
+gem 'active_model_serializers', '~> 0.10.2'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails', branch: 'main'
 gem 'rails', '~> 6.1.4', '>= 6.1.4.1'
 gem "dotenv-rails", "~> 2.7"

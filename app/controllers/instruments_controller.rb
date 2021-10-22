@@ -1,20 +1,20 @@
 class InstrumentsController < ApplicationController
     def index
-        instruments = Instrument.all
-        render json: instruments, except: [:updated_at, :created_at]
+        instruments = Instrument.with_attached_pdfs.all
+        render json: instruments, include: ["pdfs"] ,except: [:updated_at, :created_at]
     end
 
     def show
-        instruments = Instrument.find_by(id: params[:id])
+        instruments = Instrument.with_attached_pdfs.find_by(id: params[:id])
         if instruments
-            render json: instruments, except: [:updated_at, :created_at]
+            render json: instruments, include: ["pdfs"] ,except: [:updated_at, :created_at]
         else
             render json: {errors: "Instrument not found"}
         end
     end
 
     def update
-        instruments = Instrument.find_by(id: params[:id])
+        instruments = Instrument.with_attached_pdfs.find_by(id: params[:id])
         if instruments
             instruments.update!(instrument_params)
             render json: instruments
@@ -44,6 +44,6 @@ class InstrumentsController < ApplicationController
     private
 
     def instrument_params
-        permit.params(:name, pdfs: [])
+        params.permit(:id, pdfs: [])
     end
 end

@@ -2,7 +2,7 @@ import React, {useState, useEffect} from "react";
 import Select from 'react-select'
 
 function LearnPageResources (){
-    const [pdfs, setPdfs] = useState([])
+    const [pdfInputs, setPdfInputs] = useState({pdfs:[]})
     const [name, setName] = useState("")
     const [instruments, setInstruments] = useState([])
     // const [selectedValue, setSelectedValue] =useState({value: "", label: ""})
@@ -26,7 +26,7 @@ function LearnPageResources (){
     //     setSelectedValue({...selectedValue, [e.target.value]: e.target.name})
     // }
 
-
+    console.log(pdfInputs)
 
     console.log(selectedValue)
     
@@ -44,50 +44,74 @@ function LearnPageResources (){
           "label": "Guitar"
         },
         {
-          "value": 4,
-          "label": "Piano"
+            "value": 4,
+            "label": "Piano"
         },
         {
-          "value": 5,
-          "label": "Drums"
+            "value": 5,
+            "label": "Drums"
         }
-      ]
+    ]
     const handleInstrumentChange = obj => {
         setSelectedValue(obj.value)
     }
-        console.log(selectedValue)
+
+    console.log(selectedValue)
+    
+    function pdfUpdate(e){
+        setPdfInputs({...pdfInputs, pdfs: Array.from(e.target.files)})
+    }
 
     function handleUpdate(e){
         e.preventDefault()
           
+        
+        
+        
         const pdfForm = new FormData();
-        for (const pdf in pdfs){
-            pdfForm.append("pdfs[]", pdfs[pdf])
+        for (const key in pdfInputs){
+            if (key === "pdfs"){
+                for (const pdf in pdfInputs.pdfs){
+                    pdfForm.append("pdfs[]", pdfInputs.pdfs[pdf])
+                }
+            }
         }
         
         
-        
         fetch(`/instruments/${selectedValue}`, {
-              method: "PATCH",
-              body: pdfForm
-          })
-          .then(r => {
-              if (r.ok){
-                  r.json()
-                      .then(data => {
-                          setPdfs([])
-                          console.log(data)
-                      })
-              } else {
-                  r.json()
-                      .then( data => console.log(data))
-              }
-          })
-      }
-
-      function pdfUpdate(e){
-          setPdfs({...pdfs, pdfs: Array.from(e.target.files)})
-      }
+            method: "PATCH",
+            body: pdfForm
+        })
+        .then(r => {
+            if (r.ok){
+                r.json()
+                .then(data => {
+                    setPdfInputs([])
+                    console.log(data)
+                })
+            } else {
+                r.json()
+                .then( data => console.log(data))
+            }
+        })
+    }
+    // const pdfForm = new FormData();
+    // for (const key in pdfInputs){
+    //     if (key === "pdfs"){
+    //         for (const pdf in pdfInputs.pdfs){
+    //             pdfForm.append("pdfs[]", pdfInputs.pdfs[pdf])
+    //         }
+    //     }
+    // }
+    
+    
+    // console.log(pdfForm.get("pdfs[]"))
+    
+    
+    
+    
+    
+    // console.log(pdfForm)    
 
     return (
         <div>

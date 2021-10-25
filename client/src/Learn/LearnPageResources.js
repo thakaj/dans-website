@@ -5,7 +5,6 @@ function LearnPageResources (){
     const [pdfInputs, setPdfInputs] = useState({pdfs:[]})
     const [name, setName] = useState("")
     const [instruments, setInstruments] = useState([])
-    // const [selectedValue, setSelectedValue] =useState({value: "", label: ""})
     const [selectedValue, setSelectedValue] = useState(null)
 
     useEffect(()=> {
@@ -16,20 +15,7 @@ function LearnPageResources (){
             setInstruments(r)})
     },[])
 
-    // const options = instruments.map(i => {
-    //     return (
-    //         <option id={i.id}>{i.name}</option>
-    //     )
-    // })
-    
-    // function onChangeInstrument(e){
-    //     setSelectedValue({...selectedValue, [e.target.value]: e.target.name})
-    // }
-
-    console.log(pdfInputs)
-
-    console.log(selectedValue)
-    
+   
     const options = [
         {
           "value": 1,
@@ -64,10 +50,7 @@ function LearnPageResources (){
 
     function handleUpdate(e){
         e.preventDefault()
-          
-        
-        
-        
+      
         const pdfForm = new FormData();
         for (const key in pdfInputs){
             if (key === "pdfs"){
@@ -95,24 +78,7 @@ function LearnPageResources (){
             }
         })
     }
-    // const pdfForm = new FormData();
-    // for (const key in pdfInputs){
-    //     if (key === "pdfs"){
-    //         for (const pdf in pdfInputs.pdfs){
-    //             pdfForm.append("pdfs[]", pdfInputs.pdfs[pdf])
-    //         }
-    //     }
-    // }
-    
-    
-    // console.log(pdfForm.get("pdfs[]"))
-    
-    
-    
-    
-    
-    // console.log(pdfForm)    
-
+  
     return (
         <div>
             <form onSubmit={handleUpdate} >

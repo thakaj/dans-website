@@ -3,17 +3,9 @@ import Select from 'react-select'
 
 function LearnPageResources (){
     const [pdfInputs, setPdfInputs] = useState({pdfs:[]})
-    const [name, setName] = useState("")
-    const [instruments, setInstruments] = useState([])
     const [selectedValue, setSelectedValue] = useState(null)
 
-    useEffect(()=> {
-        fetch("/instruments")
-        .then(r => r.json())
-        .then(r => {
-            console.log(r)
-            setInstruments(r)})
-    },[])
+    
 
    
     const options = [

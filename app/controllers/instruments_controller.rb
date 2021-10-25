@@ -41,6 +41,18 @@ class InstrumentsController < ApplicationController
             render json: {errors: "Instrument not found"}
         end
     end
+    
+    def download 
+        document = Instrument.with_attached_pdfs.find(params[:i_id])
+        pdf = document.pdfs.find(params[:p_id])
+
+        s3 = Aws::S3::Client.new(access_key_id: ENV["AWS_ACCESS_KEY_ID"], secret_access_key: ENV["AWS_SECRET_ACESS_KEY"])
+        s3_pdf = s3.get_object(bucket: ENV['BUCKET'], key: pdf.key)
+
+        send_data s3_pdf.body.read, filename: pdf.filename.to_s, type: pdf.content_type, disposition: 'attachment'
+    end
+
+
     private
 
     def instrument_params

@@ -1,13 +1,10 @@
-import React, {useState, useEffect} from "react";
+import React, {useState} from "react";
 import Select from 'react-select'
 
 function LearnPageResources (){
     const [pdfInputs, setPdfInputs] = useState({pdfs:[]})
     const [selectedValue, setSelectedValue] = useState(null)
 
-    
-
-   
     const options = [
         {
           "value": 1,

@@ -1,5 +1,6 @@
 import React from "react";
 import LearnPageResources from "./LearnPageResources";
+import LearnMappedPdfs from "./LearnMappedPdfs";
 
 function LearnPage(){
 
@@ -7,6 +8,7 @@ function LearnPage(){
         <div>
             Hello Learn!!!!!!!!!!!
             <LearnPageResources />
+            <LearnMappedPdfs />
         </div>
     )
 }

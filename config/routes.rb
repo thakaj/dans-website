@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   get 'student/:id', to: 'students#show'
   delete 'student/:id', to: 'students#destroy'
   patch 'student/:id', to: 'students#update'
+  get 'instruments/:i_id/pdfs/:p_id', to: 'instruments#download'
   # resources :students, only: [:show, :destroy, :update]
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   

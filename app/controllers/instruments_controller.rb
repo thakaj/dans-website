@@ -52,6 +52,17 @@ class InstrumentsController < ApplicationController
         send_data s3_pdf.body.read, filename: pdf.filename.to_s, type: pdf.content_type, disposition: 'attachment'
     end
 
+    def show_pdf 
+        instrument = Instrument.with_attached_pdfs.find_by(id: params[:id])
+        document = instrument.pdfs.all
+        if document
+            render json: document, except: [:updated_at, :created_at]
+        else
+            render json: {errors: "Instrument not found"}
+        end
+
+    end
+
 
     private
 

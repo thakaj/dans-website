@@ -1,4 +1,5 @@
 import React from "react";
+import TutoringCalender from "./TutoringCalender";
 import TutoringForm from "./TutoringForm";
 
 function TutoringPage(){
@@ -7,7 +8,13 @@ function TutoringPage(){
 
     return (
         <div>Hello tutoring page
+
+            <div>
+            <TutoringCalender />
+            </div>
+            <div>
             <TutoringForm />
+            </div>
         </div>
     )
 }

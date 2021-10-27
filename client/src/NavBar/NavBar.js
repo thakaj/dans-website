@@ -22,7 +22,6 @@ function NavBar({handleLogout, currentStudent}){
                 <Link className="navbar" to="/tutoring">Book Tutoring</Link>
                 <Link className="navbar" to="/learn">Learn</Link>
                 <Link className="navbar" to="/social">Social Media</Link>
-                <Link className="navbar" to= "/contact">Contact</Link>
             </nav>
         </header>
     )

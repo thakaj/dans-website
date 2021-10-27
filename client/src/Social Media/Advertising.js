@@ -7,9 +7,9 @@ import {
     faYoutube,
     faBandcamp,
     faSpotify,
-    faApple
+    faApple,
+    faSoundcloud
   } from "@fortawesome/free-brands-svg-icons";
-
 
 function Advertising(){
     
@@ -48,7 +48,15 @@ function Advertising(){
                         className="youtube social">
                         <FontAwesomeIcon icon={faYoutube} size="2x" />
                         </a>
-                        <a href="https://open.spotify.com/artist/43v0qrDTLSQ2hYBlM5kmHZ?si=MzPS5zhKRwGJ8SJcisUdlw"
+                        <a href="https://www.youtube.com/watch?v=FEbYnVDCg4Y&ab_channel=BushwickSounds"
+                        className="youtube social">
+                        <FontAwesomeIcon icon={faYoutube} size="2x" />
+                        </a>
+                        <a href="https://www.youtube.com/channel/UCBw76picr1ivZJxUUmYQnpg"
+                        className="youtube social">
+                        <FontAwesomeIcon icon={faYoutube} size="2x" />
+                        </a>
+                        <a href="https://www.youtube.com/watch?v=jTCG2RLjsj0&ab_channel=ARAWAXRECS"
                         className="spotify social">
                         <FontAwesomeIcon icon={faSpotify} size="2x" />
                         </a>
@@ -56,27 +64,47 @@ function Advertising(){
                         className="apple social">
                         <FontAwesomeIcon icon={faApple} size="2x" />
                         </a>
+                       
                     </li>
                     <li>
                     Killer Shrimp
                         <a href="https://www.facebook.com/RealKillrShrimp/"
                         className="facebook social">
                         <FontAwesomeIcon icon={faFacebook} size="2x" />
-                        </a> Album on BandCamp
+                        </a> 
+                        
                         <a href="https://killashramp.bandcamp.com/album/killer-shrimp?fbclid=IwAR3N2viRX59cuzSJPg6P_ogBG3QQOp90KoO2pWyt-xDSBig35WqxeML4QT8"
                         className="bandCamp social">
                         <FontAwesomeIcon icon={faBandcamp} size="2x" />
                         </a> 
+                        <a href="https://www.youtube.com/watch?v=5Ar9f8dYFiA&t=11s&ab_channel=OmarElshafi"
+                        className="youtube social">
+                        <FontAwesomeIcon icon={faYoutube} size="2x" />
+                        </a>
+                    <li>
+                    The Alligator 
+                    <a href="https://soundcloud.com/the-alligator"
+                        className="soundcloud social">
+                    <FontAwesomeIcon icon={faSoundcloud} size="2x" />
+                    </a>
+                    </li>
+                    <li>
+                    Hong Kong Graffiti
+                    <a href="https://open.spotify.com/artist/6pqLq8HJe2LWfvnkIMGUdP?si=U86p91icTmCgM3Vtnm7siA"
+                        className="spotify social">
+                        <FontAwesomeIcon icon={faSpotify} size="2x" />
+                    </a>
+                    </li>
+                    <li>
+                    Picnic
+                    <a href="https://picnicnj.bandcamp.com/releases"
+                        className="bandCamp social">
+                        <FontAwesomeIcon icon={faBandcamp} size="2x" />
+                        </a> 
+                    </li>
                     </li>
                 </ul>
-            </article>
-            <article>
-                Current Projects
-                
-                    <p>
-                        Bands I am apart of:
-                        Work I am composing: Albums/books
-                    </p>
+
             </article>
         </div>
     )

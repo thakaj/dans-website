@@ -75,6 +75,9 @@ a.bandCamp {
 a.spotify {
   color: green;
 }
+a.soundcloud {
+  color: orange;
+}
 p.aboutMe {
   font-size: 20px;
   margin-left: 70;

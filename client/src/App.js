@@ -7,7 +7,6 @@ import HomePage from './HomePage/HomePage';
 import TutoringPage from './BookTutoring/TutoringPage';
 import LearnPage from './Learn/LearnPage';
 import SocialMediaPage from './Social Media/SocialMediaPage';
-import ContactPage from './Contact/ContactPage';
 import StudentSignUp from './Login/StudentSignUp,';
 import UpdateStudent from './Login/UpdateStudent';
 
@@ -55,9 +54,6 @@ function App() {
         </Route>
         <Route exact path = "/social">
           <SocialMediaPage /> 
-        </Route>
-        <Route exact path = "/contact">
-          <ContactPage />
         </Route>
         <Route exact path = "/signup">
           <StudentSignUp handleLogin={handleLogin} currentStudent={currentStudent} />

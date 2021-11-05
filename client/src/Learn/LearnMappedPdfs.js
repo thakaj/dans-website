@@ -8,8 +8,6 @@ function LearnMappedPdfs(){
         filename: "",
         id: ""
     }])
-
-    
     const [show, setShow] = useState(null)
     const [selectedValue, setSelectedValue] = useState("")
 
@@ -86,11 +84,7 @@ function LearnMappedPdfs(){
                                     </div>
                                 )): null}
                             </div>
-
-
-
-
-            </div>
+                </div>
         </div>
     )
 }

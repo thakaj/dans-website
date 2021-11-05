@@ -14,15 +14,20 @@ function TutoringPage({currentStudent}){
                 <TutoringDetails />
             </div>
                 <div>
-                    {/* <div> Free Sheet Music
+                    <h4>  Free Sheet Music</h4>
+                    <div>
                         <LearnPage />
-                    </div> */}
+                    </div>
                 </div>
+                <br>
+                </br>
+
                 {currentStudent ? <div>
+                 <h3>Book private lessons with Dan Connolloy: </h3>
                 <TutoringForm currentStudent={currentStudent} />
             </div> : 
                 <div>
-                   <div> Sign in to book private lessons with Dan Connolloy: 
+                   <div> 
                        <button onclick={history.push("/login")}> Sign In</button>
                    </div>
                 </div> }

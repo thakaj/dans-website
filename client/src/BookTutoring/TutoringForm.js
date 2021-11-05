@@ -1,48 +1,69 @@
 import React, {useState, useEffect} from "react";
 import Select from 'react-select'
 
-function TutoringForm(){
-    const [remote, setRemote] = useState(false)
+function TutoringForm({currentStudent}){
+    const [remote, setRemote] = useState(null)
     const [location, setLocation] = useState("")
-    const [time, setTime] = useState("")
-    const [instruments, setInstruments] = useState([])
-    const [pdfs, setPdfs] = useState([])
-    const [name, setName] = useState("")
-   
-    useEffect(()=> {
-        fetch("/instruments")
+    const [instrument, setInstrument] = useState([])
+    
+
+    function handleInstrumentChange(obj){
+        fetch(`instruments/${obj.value}`)
         .then(r => r.json())
-        .then(r => {
-            console.log(r)
-            setInstruments(r)})
-    },[])
-        
-    const options = instruments.map(i => ({
-        "value": i.id,
-        "label": i.name
-    }))   
-        
+        .then(data=> {
+            setInstrument(data)})
+    }
+
+    // function handleRemoteChange(remote){
+    //     setRemote(remote)
+    // }
+    // const options = selectedOptions.map(i => ({
+    //     "value": i.id,
+    //     "label": i.name
+    // }))   
+  
+    const options = [
+        {
+          "value": 1,
+          "label": "Bass"
+        },
+        {
+          "value": 2,
+          "label": "Upright Bass"
+        },
+        {
+          "value": 3,
+          "label": "Guitar"
+        },
+        {
+            "value": 4,
+            "label": "Piano"
+        },
+        {
+            "value": 5,
+            "label": "Drums"
+        }
+    ]
+
     const remoteOptions = [{value: 'true', label: 'Yes'},
                             {value: 'false', label: 'No'}]
 
 
     function handleSubmit(e){
         e.preventDefault()
-        fetch(`/appointments`,{
+        fetch(`/appointments`,{ 
             method: "POST",
             headers: {
-                "Content-Type": "applcation/json",
-                "Accepts": "applcation/json"
+                "Content-Type": "application/json",
+                "Accepts": "application/json"
             },
-            body: JSON.stringify({remote,location,time})
+            body: JSON.stringify({remote: remote, location: location, instrument_id: instrument.id})
         })
         .then(r => {
             if (r.ok){
                 r.json()
                     .then(data => {
                         setLocation("")
-                        setRemote(false)
-
                     })
             } else {
                 r.json()
@@ -50,53 +71,31 @@ function TutoringForm(){
             }
         })
   }
-
-  function handleUpdate(e){
-      e.preventDefault()
-        fetch('/instruments/', {
-            method: "Patch",
-            body: ({name,pdfs})
-        })
-        .then(r => {
-            if (r.ok){
-                r.json()
-                    .then(data => {
-                        setName("")
-                        setPdfs([])
-                        console.log(data)
-                    })
-            } else {
-                r.json()
-                    .then( data => console.log(data))
-            }
-        })
-    
-    }
-
+  
 
     return (
         <div >
             <div>
                 <form onSubmit={handleSubmit}>
                     <div style={{color: "black"}}>
-                    <Select options={options}  />
+                    <Select options={options} 
+                    value={options.find(x => x.value === instrument)}
+                    onChange={handleInstrumentChange}
+                    />
                     </div>
                     <label>Remote: </label>
                     <div style={{color: "black"}}>
-                    <Select options={remoteOptions}  />
+                    <select name="remote" id="remote" onChange={e=> setRemote(e.target.value)}>
+                        <option>True</option>
+                        <option>False</option>
+                    </select>
                     </div>      
                     <label>Location: </label>
                     <input type="text" id="location" name="location"
                     onChange={e=> setLocation(e.target.value)}
                     value={location}
                     placeholder="Enter Location"
-                    />
-                    <label>Time: </label>
-                    <input type="text" id="time" name="time"
-                    // onChange={}
-                    // value={}
-                    placeholder="Enter Time"
-                    />
+                    />             
                     <button type="submit">Submit</button>
                 </form>
             </div>

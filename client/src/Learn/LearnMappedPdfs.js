@@ -2,15 +2,15 @@ import React, {useState} from "react";
 import Select from 'react-select'
 
 function LearnMappedPdfs(){
+
     const [instruments, setInstruments] = useState([])
     const [pdf, setPdf] = useState([{
         filename: "",
-        id: "",
-        url: ""
+        id: ""
     }])
-    const [show, setShow] = useState(null)
-   
 
+    
+    const [show, setShow] = useState(null)
     const [selectedValue, setSelectedValue] = useState("")
 
     const options = [
@@ -61,7 +61,6 @@ function LearnMappedPdfs(){
             link.setAttribute(
                 'download',
                 doc.filename
-                
             );
             document.body.appendChild(link);
             link.click();

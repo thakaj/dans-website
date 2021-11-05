@@ -25,6 +25,7 @@ function LearnPageResources (){
         {
             "value": 5,
             "label": "Drums"
+
         }
     ]
     const handleInstrumentChange = obj => {

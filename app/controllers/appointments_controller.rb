@@ -1,4 +1,6 @@
 class AppointmentsController < ApplicationController
+    before_action :authenticate_student!
+
     def index
         appointments = Appointment.all
         render json: appointments, except: [:updated_at, :created_at]
@@ -14,7 +16,7 @@ class AppointmentsController < ApplicationController
     end
 
     def create
-        appointments = Appointment.create!(appointment_params)
+        appointments = current_student.appointments.create(appointment_params)
         if appointments.valid?
             render json: appointments
         else
@@ -44,6 +46,6 @@ class AppointmentsController < ApplicationController
     private
 
     def appointment_params
-        permit.params(:time, :remote, :location)
+        params.permit(:remote, :location, :instrument_id)
     end
 end

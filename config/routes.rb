@@ -19,6 +19,4 @@ Rails.application.routes.draw do
   get 'instruments/:id/pdfs', to: 'instruments#show_pdf'
   # resources :students, only: [:show, :destroy, :update]
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
-  
-
 end

@@ -20,7 +20,6 @@ function NavBar({handleLogout, currentStudent}){
                 <Link className="navbar" to="/">Home Page</Link>
                 {currentStudent ? (<Link className="navBar" to="/" onClick={handleDelete}>Logout</Link>) : (<Link className="navbar"to="/login">Login</Link>)}
                 <Link className="navbar" to="/tutoring">Book Tutoring</Link>
-                <Link className="navbar" to="/learn">Learn</Link>
                 <Link className="navbar" to="/social">Social Media</Link>
             </nav>
         </header>

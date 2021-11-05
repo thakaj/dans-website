@@ -9,6 +9,7 @@ import LearnPage from './Learn/LearnPage';
 import SocialMediaPage from './Social Media/SocialMediaPage';
 import StudentSignUp from './Login/StudentSignUp,';
 import UpdateStudent from './Login/UpdateStudent';
+import LearnPageResources from './Learn/LearnPageResources';
 
 
 function App() {
@@ -47,10 +48,10 @@ function App() {
           <HomePage />
         </Route>
         <Route exact path = "/tutoring">
-          <TutoringPage />
+          <TutoringPage currentStudent={currentStudent}/>
         </Route>
-        <Route exact path = "/learn">
-          <LearnPage />
+        <Route exact path = "/adminlearn">
+          <LearnPageResources />
         </Route>
         <Route exact path = "/social">
           <SocialMediaPage /> 
